@@ -1,4 +1,4 @@
-Symfony2 + ESI + Nginx + php-fpm + APC + Varnish
+Symfony2 + ESI + Nginx + php-fpm + APC + Varnish (+Pound)
 ======================
 
 This is a basic setup for above configuration that works on a server
