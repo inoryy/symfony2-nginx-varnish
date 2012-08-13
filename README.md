@@ -8,13 +8,16 @@ Folders imitate default installation paths for Linux Debian OS.
 
 Files don't contain full configuration, rather the relevant parts you need to change/add.
 
-Specific versions that this setup was tested on:
+#### Specific versions that this setup was tested on:
 * Symfony 2.1-RC1
 * Nginx   1.2.3
 * PHP     5.3.15
 * Varnish 2.1.3
 
-Inspired by:
+#### Inspired by:
 * http://www.zalas.eu/nginx-configuration-for-symfony-projects
 * http://todsul.com/symfony2-esi-varnish
 * http://symfony.com/doc/current/cookbook/cache/varnish.html
+
+#### Contributors:
+* Florian Holzhauer - Pound
