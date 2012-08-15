@@ -23,15 +23,27 @@ server {
         rewrite ^/(.*)$ /app.php/$1;
     }
 
-    location ~* \.(?:ico|css|js|gif|jpe?g|png)$ {
+#    Uncomment only if you're *not* using LiipImagineBundle or similar image generation tool
+#    This context will mess with it and cache 404 for not yet generated images
+#    location ~* \.(?:ico|css|js|gif|jpe?g|png)$ {
+#        expires 18h;
+#        add_header Cache-Control "public, must-revalidate, proxy-revalidate";
+#    }
+
+    location ~* \.(?:css|js)$ {
+    #    You need to recompile nginx to use gzip_static
+    #    See http://wiki.nginx.org/HttpGzipStaticModule
+    #    gzip_static on;
+
         expires 18h;
-        add_header Cache-Control "public, must-revalidate, proxy-revalidate";
+        add_header Cache-Control "publi, must-revalidate, proxy-revalidate";
     }
 
     location ~ \.php {
-        limit_conn  default  50;
+        limit_conn  default  30;
 
-        try_files $uri =404;
+#        Messes up with SEF URIs, not sure it's even needed
+#        try_files $uri =404;
 
         fastcgi_index app.php;
         fastcgi_pass 127.0.0.1:9000;
